@@ -37,7 +37,7 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/top_1" />
+                app:srcCompat="@drawable/top_1" />
 
         <TextView
                 android:id="@+id/textView2"
@@ -111,7 +111,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/icon1" />
+                        app:srcCompat="@drawable/icon1" />
 
                 <TextView
                         android:id="@+id/textView3"
@@ -147,7 +147,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/icon2" />
+                        app:srcCompat="@drawable/icon2" />
 
                 <TextView
                         android:id="@+id/textView3"
@@ -190,7 +190,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/icon3" />
+                        app:srcCompat="@drawable/icon3" />
 
                 <TextView
                         android:id="@+id/textView3"
@@ -226,7 +226,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/icon4" />
+                        app:srcCompat="@drawable/icon4" />
 
                 <TextView
                         android:id="@+id/textView3"
@@ -269,7 +269,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/icon5" />
+                        app:srcCompat="@drawable/icon5" />
 
                 <TextView
                         android:id="@+id/textView3"
@@ -305,7 +305,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/icon6" />
+                        app:srcCompat="@drawable/icon6" />
 
                 <TextView
                         android:id="@+id/textView3"

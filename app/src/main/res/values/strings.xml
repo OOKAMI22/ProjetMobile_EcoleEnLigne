@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProjetMobile_EcoleEnLigne</string>
+    <string name="etudiant">étudiant</string>
+    <string name="prof">professeur</string>
 </resources>

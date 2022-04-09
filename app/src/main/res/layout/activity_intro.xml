@@ -68,7 +68,7 @@
                     android:textSize="20sp" />
 
             <Button
-                    android:id="@+id/button"
+                    android:id="@+id/buttonLogin"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
@@ -82,7 +82,7 @@
                     android:textStyle="bold" />
 
             <Button
-                    android:id="@+id/button"
+                    android:id="@+id/buttonSignup"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
@@ -94,7 +94,7 @@
                     android:text="SignUp"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
