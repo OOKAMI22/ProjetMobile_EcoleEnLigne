@@ -12,11 +12,7 @@
         <activity
                 android:name=".DashboardEtudiant"
                 android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
 
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
         </activity>
         <activity
                 android:name=".Profile"
@@ -32,6 +28,11 @@
         <activity
                 android:name=".Intro"
                 android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
 
         </activity>
 
