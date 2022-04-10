@@ -1,0 +1,60 @@
+@startuml
+!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
+!define foreign_key(x) <color:#aaaaaa><&key></color> x
+!define column(x) <color:#efefef><&media-record></color> x
+!define table(x) class x << (T, white) >>
+
+Moderateur <-- Cours : Créé par
+Cours <-- Examen : Porte sur
+Formation <-- Etudiant : Suit
+Formation <-- Cours : Compose
+Etudiant "0..*" -- "1..1" Passe
+Examen "0..*" -- "1..1"Passe
+
+table(Etudiant){
+    primary_key(idE)
+    column(nom)
+    column(prenom)
+    column(email)
+    column(numero)
+    column(mdp)
+    column(pays)
+    foreign_key(idF)
+    }
+table(Moderateur){
+    primary_key(idM)
+    column(nom)
+    column(prenom)
+    column(email)
+    column(numero)
+    column(mdp)
+    column(pays)
+    foreign_key(formation)
+    }
+table(Formation){
+    primary_key(idF)
+    column(durée)
+    column(prix)
+    }
+
+table(Cours){
+    primary_key(idC)
+    column(titre)
+    column(contenu)
+    column(nbHeure)
+    foreign_key(idF)
+    foreign_key(idM)
+    }
+table(Examen){
+    primary_key(idEx)
+    column(sujet)
+    column(contenu)
+    foreign_key(idC)
+    }
+table(Passe){
+    foreign_key(primary_key(idE))
+    foreign_key(primary_key(idEx))
+    column(note)
+    }
+
+@enduml

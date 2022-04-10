@@ -1,0 +1,143 @@
+@startuml
+
+Utilisateur <|-- Etudiant
+Utilisateur <|-- Moderateur
+
+Cours --o Formation
+Examen --o Formation
+
+Moderateur "ajouteCours" -- Cours
+Moderateur "ajouteExamen"-- Examen
+Moderateur "lanceAnnonce"-- Annonce
+
+Etudiant *-- Formation
+
+enum TypeAnnonce{
+NouveauCours
+NouvelExam
+MAJ
+}
+enum Grade{
+Nouveau
+DataScientist
+Mathematicien
+ProPython
+Createur
+}
+
+
+abstract class Utilisateur{
+    - long id;
+    - String nom
+    - String prenom
+    - String email
+    - long numero
+    - String mdp
+    - String pays
+    + Utilisateur( String n,..,String p)
+    + long getId()
+    + String getNom()
+    + void setNom(String n)
+    + String getPrenom()
+    + void setPrenom(String p)
+    + String getEmail()
+    + void setEmail(String e)
+    + long getNumero()
+    + void setNumero(long n)
+    + String getMdp()
+    + void setMdp(String mdp)
+    + String getPays()
+    + void setPays(String p)
+
+}
+
+class Etudiant {
+    - float moyenne
+    - Formation formation
+    - int avancement
+    + Etudiant( String n,..,Formation f)
+    + float getMoyenne()
+    + void setMoyenne(float m)
+    + Formation getFormation()
+    + void setFormation(Formation f)
+    + int getAvancement()
+    + void setAvancement(int a)
+
+}
+
+class Moderateur {
+    - Grade grade;
+    - ArrayList<Cours> cours
+
+    + Moderateur( String n,..,String p)
+    + Grade getGrade()
+    + void setGrade(Grade g)
+    + Cours creerCours(String t, String c,int n,Formation f)
+    + void supprimerCours(Cours c)
+    + Examen creerExamen(String t)
+    + void supprimerExamen(Examen c)
+    + void supprimerEtudiant(Etudiant e)
+    + void lancerAnnonce(Annonce a)
+
+}
+
+class Formation{
+    - long id
+    - int duree
+    - float prix
+    - ArrayList<Cours> cours
+    - ArrayList<Examen> examens
+    + Formation( int d, float p)
+    + void ajouterCours(Cours cours)
+    + void ajouterExamen(Examen examen)
+    + long getId()
+    + int getDuree()
+    + void setDuree(int d)
+    + float getPrix()
+    + void setPrix(float p)
+}
+
+class Cours{
+    - long id;
+    - String titre;
+    - String contenu;
+    - int nbHeure;
+    - Moderateur mod;
+
+    + Cours(String t,..,Moderateur m)
+    + long getId()
+    + String getTitre()
+    + void setDuree(String t)
+    + String getContenu()
+    + void setContenu(String c)
+    + int getNbHeures()
+    + void setNbHeures(int n)
+    + Moderateur getModerateur()
+    + void setModerateur(Moderateur m)
+
+}
+
+class Examen{
+    - long id
+    -int nbQuestion
+    -Map<String, String> ListeRéponse
+    + Examen()
+    + long getId()
+    + long NbQuestion()
+    + void setNbQuestion(int n)
+    + void ajouterQuestion(String q,String r)
+    + void supprimerQuestion(String q)
+
+}
+class Annonce{
+    - long id
+    - TypeAnnonce type
+    - String contenu
+    + Annonce(TypeAnnone t,String c)
+    + long getId()
+    + TypeAnnonce getType()
+    + void setType(TypeAnnonce a)
+    + String getContenu()
+    + void setContenu(String c)
+}
+@enduml
