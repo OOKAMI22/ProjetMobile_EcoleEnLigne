@@ -8,4 +8,5 @@ public class Examen {
     Map<String, String> ListeRéponse = new HashMap<>();
 
 
+    public Examen() {}
 }

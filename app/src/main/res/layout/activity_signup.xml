@@ -51,14 +51,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Signup To your account"
+                    android:text="Inscrivez-vous"
                     android:textAlignment="center"
                     android:textColor="#0757F6"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
             <EditText
-                    android:id="@+id/editTextTextPersonName2"
+                    android:id="@+id/nom"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="32dp"
@@ -66,14 +66,14 @@
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
-                    android:hint="enter your name"
+                    android:hint="Entrez votre nom"
                     android:inputType="textPersonName"
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
 
             <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/prenom"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="32dp"
@@ -81,14 +81,14 @@
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
-                    android:hint="enter your email"
+                    android:hint="Entrez votre prenom"
                     android:inputType="textPersonName"
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
 
             <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="32dp"
@@ -97,14 +97,76 @@
 
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
-                    android:hint="enter your password"
+                    android:hint="Entrez votre email"
+                    android:inputType="textPassword"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+            <EditText
+                    android:id="@+id/numero"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez votre numero de téléphone"
+                    android:inputType="phone"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+            <EditText
+                    android:id="@+id/pays"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez votre pays"
+                    android:inputType="textPostalAddress"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+            <EditText
+                    android:id="@+id/formation"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez votre choix de formation"
+                    android:inputType="textPassword"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+            <EditText
+                    android:id="@+id/mdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez votre mot de passe"
                     android:inputType="textPassword"
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
 
+
+
             <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnSignUp"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"

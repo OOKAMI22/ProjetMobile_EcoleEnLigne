@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Login To your account"
+                    android:text="Connectez_vous"
                     android:textAlignment="center"
                     android:textColor="#0757F6"
                     android:textSize="24sp"
@@ -96,7 +96,7 @@
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
-                    android:hint="enter your email"
+                    android:hint="Entrez votre email"
                     android:inputType="textPersonName"
                     android:padding="16dp"
                     android:textColorHint="#636363"
@@ -112,14 +112,14 @@
 
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
-                    android:hint="enter your password"
+                    android:hint="Entrez votre mot de passe"
                     android:inputType="textPassword"
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
 
             <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnLogin"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
@@ -127,7 +127,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/blue_btn_background"
-                    android:text="Login"
+                    android:text="connexion"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="32dp"
-                    android:text="Forget Your Password?"
+                    android:text="Mot de passe oublié?"
                     android:textAlignment="center"
                     android:textColor="#5B5B5B" />
 

@@ -11,6 +11,10 @@ public class Etudiant extends Utilisateur{
         this.setMoyenne(0);
         this.setFormation(formation);
     }
+    public Etudiant( String nom, String prenom, String email, long numero, String mdp, String pays) {
+        super( nom, prenom, email, numero, mdp, pays);
+        this.setMoyenne(0);
+    }
 
     public float getMoyenne() {
         return moyenne;

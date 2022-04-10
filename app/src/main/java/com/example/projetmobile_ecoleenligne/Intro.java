@@ -9,16 +9,29 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.projetmobile_ecoleenligne.classes.Utilisateur;
 
 public class Intro extends AppCompatActivity {
+    Button btnLogin;
     Button btnSignUp;
+    // car on sait pas encore si c'est un etudiant ou un moderateur
+    Utilisateur user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        btnSignUp = (Button) this.findViewById(R.id.buttonSignup);
+        btnSignUp = (Button) this.findViewById(R.id.btnSignup);
+        btnLogin = (Button) this.findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                login(view);
+            }
+        });;
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,34 +41,11 @@ public class Intro extends AppCompatActivity {
 
     }
     public void signUP(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("êtes vous étudiant ou professeur?");
-        builder.setCancelable(true);
-        builder.setPositiveButton(R.string.etudiant, new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialogInterface, int id){
-                Toast.makeText(Intro.this,R.string.etudiant, Toast.LENGTH_LONG).show();
-
-                //mon intent
-                Intent intention= new Intent(Intro.this, Signup.class);
-
-                startActivity(intention);
-            }
-
-        });
-        builder.setNegativeButton(R.string.prof, new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialogInterface,int id) {
-                Toast.makeText(Intro.this, R.string.prof, Toast.LENGTH_LONG).show();
-                Intent intention= new Intent(Intro.this, Signup.class);
-
-                startActivity(intention);
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        Intent intention= new Intent(Intro.this, Signup.class);
+        startActivity(intention);
     }
-    public void login() {
+
+    public void login(View view) {
         Intent intention= new Intent(Intro.this, Login.class);
 
         startActivity(intention);

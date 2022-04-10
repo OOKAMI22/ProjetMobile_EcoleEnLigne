@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Welcome to\nUI Lover Channel"
+                    android:text="Bienvenu sur l'application mobile de notre école en ligne "
                     android:textAlignment="center"
                     android:textColor="#0757F6"
                     android:textSize="30sp"
@@ -62,13 +62,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Download all the designs\navailable on the uilover channel for free"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="#0757F6"
                     android:textSize="20sp" />
 
             <Button
-                    android:id="@+id/buttonLogin"
+                    android:id="@+id/btnLogin"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
@@ -76,13 +76,13 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/blue_btn_background"
-                    android:text="Login"
+                    android:text="Connexion"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
             <Button
-                    android:id="@+id/buttonSignup"
+                    android:id="@+id/btnSignup"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
@@ -91,7 +91,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="32dp"
                     android:background="@drawable/blue_btn_background"
-                    android:text="SignUp"
+                    android:text="Inscription"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
                     android:textStyle="bold"/>
