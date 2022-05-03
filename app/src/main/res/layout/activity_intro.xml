@@ -5,7 +5,7 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    android:background="#ffffff"
-                                                   tools:context=".MainActivity">
+                                                   tools:context=".Intro">
 
     <ScrollView
             android:layout_width="match_parent"
@@ -20,9 +20,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                    android:id="@+id/textView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Bienvenu sur HappyMooc !"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                         android:id="@+id/imageView"
@@ -33,42 +40,10 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/top_background" />
-
-                <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView"
-                        app:srcCompat="@drawable/logo1" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Bienvenu sur l'application mobile de notre école en ligne "
-                    android:textAlignment="center"
-                    android:textColor="#0757F6"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-            <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text=""
-                    android:textAlignment="center"
-                    android:textColor="#0757F6"
-                    android:textSize="20sp" />
+                        app:srcCompat="@drawable/happy_mooc" />
 
             <Button
-                    android:id="@+id/btnLogin"
+                    android:id="@+id/btnFormations"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
@@ -76,10 +51,11 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/blue_btn_background"
-                    android:text="Connexion"
+                    android:text="Découvrir les formations"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
                     android:textStyle="bold" />
+
 
             <Button
                     android:id="@+id/btnSignup"
@@ -95,6 +71,19 @@
                     android:textColor="#ffffff"
                     android:textSize="22sp"
                     android:textStyle="bold"/>
+            <Button
+                    android:id="@+id/btnLogin"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/blue_btn_background"
+                    android:text="Connexion"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

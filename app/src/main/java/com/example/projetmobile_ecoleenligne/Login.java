@@ -32,5 +32,6 @@ public class Login extends AppCompatActivity {
         String email = emailET.getText().toString();
         String mdp = mdpET.getText().toString();
         // Interroger la bdd sur les 2 string
+
     }
 }

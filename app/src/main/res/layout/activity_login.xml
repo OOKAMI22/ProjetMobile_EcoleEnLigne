@@ -20,21 +20,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/top_background" />
-
                 <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="wrap_content"
@@ -43,49 +28,20 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView"
-                        app:srcCompat="@drawable/logo2" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:srcCompat="@drawable/happy_mooc" />
+
 
             <TextView
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Connectez_vous"
+                    android:text="Connectez-vous à votre compte"
                     android:textAlignment="center"
                     android:textColor="#0757F6"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
-                    android:orientation="horizontal">
-
-                <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/facebook" />
-
-                <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/google" />
-
-                <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/twitter" />
-            </LinearLayout>
 
             <EditText
                     android:id="@+id/editTextTextPersonName"
