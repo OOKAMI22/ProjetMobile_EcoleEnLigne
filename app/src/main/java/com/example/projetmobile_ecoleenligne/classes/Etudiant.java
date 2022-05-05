@@ -11,9 +11,8 @@ public class Etudiant extends Utilisateur{
         this.setMoyenne(0);
         this.setFormation(formation);
     }
-    public Etudiant( String nom, String prenom, String email, long numero, String mdp, String pays) {
-        super( nom, prenom, email, numero, mdp, pays);
-        this.setMoyenne(0);
+    public Etudiant() {
+        super();
     }
 
     public float getMoyenne() {
@@ -31,4 +30,7 @@ public class Etudiant extends Utilisateur{
     public void setFormation(Formation formation) {
         this.formation = formation;
     }
+
+
+
 }

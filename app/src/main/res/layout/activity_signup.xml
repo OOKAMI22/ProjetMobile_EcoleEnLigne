@@ -85,7 +85,7 @@
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
                     android:hint="Entrez votre email"
-                    android:inputType="textPassword"
+                    android:inputType="textEmailAddress"
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
@@ -115,7 +115,7 @@
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
                     android:hint="Entrez votre pays"
-                    android:inputType="textPostalAddress"
+                    android:inputType="text"
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
@@ -130,7 +130,7 @@
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
                     android:hint="Entrez votre choix de formation"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />

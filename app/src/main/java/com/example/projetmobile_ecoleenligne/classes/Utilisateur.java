@@ -1,18 +1,23 @@
 package com.example.projetmobile_ecoleenligne.classes;
 
+import java.util.ArrayList;
+
 public class Utilisateur {
     private long id;
     private String nom;
     private String prenom;
     private String email;
     private long numero;
-    private String mdp;
+    private String mot_de_passe;
     private String pays;
 
+    public Utilisateur( ) {
+    }
 
     public Utilisateur( String nom, String prenom, String email, long numero, String mdp, String pays) {
         this.setNom(nom);
         this.setPrenom(prenom);
+        this.setEmail(email);
         this.setMdp(email);
         this.setNumero(numero);
         this.setMdp(mdp);
@@ -60,11 +65,11 @@ public class Utilisateur {
     }
 
     public String getMdp() {
-        return mdp;
+        return mot_de_passe;
     }
 
     public void setMdp(String mdp) {
-        this.mdp = mdp;
+        this.mot_de_passe = mdp;
     }
 
     public String getPays() {
@@ -74,4 +79,9 @@ public class Utilisateur {
     public void setPays(String pays) {
         this.pays = pays;
     }
+
+    public String toString(){
+        return this.getNom()+"$"+this.getPrenom()+"$"+this.getEmail()+"$"+this.getNumero()+"$"+this.getPays();
+    }
+
 }

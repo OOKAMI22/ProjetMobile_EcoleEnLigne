@@ -1,15 +1,24 @@
 package com.example.projetmobile_ecoleenligne;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.projetmobile_ecoleenligne.classes.Etudiant;
+import com.example.projetmobile_ecoleenligne.classes.Moderateur;
+import com.example.projetmobile_ecoleenligne.classes.Serveur;
+import com.example.projetmobile_ecoleenligne.classes.Utilisateur;
+import com.google.gson.Gson;
+
+import java.io.IOException;
 
 public class Login extends AppCompatActivity {
     EditText emailET;
     EditText mdpET;
     Button btnLogin;
+    Utilisateur user;
 
 
     @Override
@@ -23,15 +32,53 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                connexion(view);
+                try {
+                    connexion(view);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });;
     }
 
-    public void connexion(View view){
+    public void connexion(View view) throws IOException {
         String email = emailET.getText().toString();
         String mdp = mdpET.getText().toString();
+        user = new Utilisateur();
+        user.setEmail(email);
+        user.setMdp(mdp);
+        // to Json
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        System.out.println(json);
+
         // Interroger la bdd sur les 2 string
+        Serveur serveur = new Serveur();
+        String url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ConnexionEtudiant";
+        System.out.println("*********************");
+        System.out.println(serveur.PostRequest(url,json));
+        System.out.println("*********************");
+        if(!serveur.PostRequest(url,json).equals("")) {
+            String userString = serveur.PostRequest(url, json).toString();
+            Etudiant userConnected = gson.fromJson(userString, Etudiant.class);
+            // Envoyer les information de l'utilisateur à l'intent suivante
+            Intent intention= new Intent(Login.this, DashboardEtudiant.class);
+
+            intention.putExtra("user",userConnected.toString());
+            startActivity(intention);
+        }
+        else{
+            url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ConnexionModerateur";
+            String userString = serveur.PostRequest(url, json).toString();
+            Moderateur userConnected = gson.fromJson(userString, Moderateur.class);
+
+            // Envoyer les information de l'utilisateur à l'intent suivante
+            Intent intention= new Intent(Login.this, DashboardEtudiant.class);
+
+            intention.putExtra("user",userConnected.toString());
+            startActivity(intention);
+        }
+
 
     }
 }
