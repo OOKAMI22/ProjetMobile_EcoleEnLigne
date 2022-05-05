@@ -51,6 +51,7 @@ public class Login extends AppCompatActivity {
         Gson gson = new Gson();
         String json = gson.toJson(user);
         System.out.println(json);
+        String role = "";
 
         // Interroger la bdd sur les 2 string
         Serveur serveur = new Serveur();
@@ -61,21 +62,25 @@ public class Login extends AppCompatActivity {
         if(!serveur.PostRequest(url,json).equals("")) {
             String userString = serveur.PostRequest(url, json).toString();
             Etudiant userConnected = gson.fromJson(userString, Etudiant.class);
+            role = "etudiant";
             // Envoyer les information de l'utilisateur à l'intent suivante
             Intent intention= new Intent(Login.this, DashboardEtudiant.class);
 
             intention.putExtra("user",userConnected.toString());
+            intention.putExtra("role",role);
             startActivity(intention);
         }
         else{
             url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ConnexionModerateur";
             String userString = serveur.PostRequest(url, json).toString();
             Moderateur userConnected = gson.fromJson(userString, Moderateur.class);
+            role = "moderateur";
 
             // Envoyer les information de l'utilisateur à l'intent suivante
             Intent intention= new Intent(Login.this, DashboardEtudiant.class);
 
             intention.putExtra("user",userConnected.toString());
+            intention.putExtra("role",role);
             startActivity(intention);
         }
 

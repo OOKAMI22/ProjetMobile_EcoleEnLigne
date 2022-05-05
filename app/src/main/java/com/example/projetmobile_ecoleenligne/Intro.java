@@ -30,14 +30,14 @@ public class Intro extends AppCompatActivity {
             public void onClick(View view) {
                 login(view);
             }
-        });;
+        });
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
               signUP(view);
             }
-        });;
+        });
 
     }
     public void signUP(View view) {

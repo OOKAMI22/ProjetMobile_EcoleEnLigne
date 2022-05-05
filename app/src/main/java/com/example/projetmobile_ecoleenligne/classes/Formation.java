@@ -3,15 +3,36 @@ package com.example.projetmobile_ecoleenligne.classes;
 import java.util.ArrayList;
 
 public class Formation {
-    private long idF;
+    private long id;
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    private String titre;
+    private String description;
     private int duree;
     private float prix;
     ArrayList<Cours> cours = new ArrayList<Cours>();
     ArrayList<Examen> examens = new ArrayList<Examen>();
 
-    public Formation( int duree, float prix) {
-        this.setDuree(duree);
-        this.setPrix(prix);
+    public Formation(String titre, String description, float prix, int duree) {
+        this.titre = titre;
+        this.description = description;
+        this.prix = prix;
+        this.duree = duree;
     }
 
     public void ajouterCours(Cours cours){
@@ -21,12 +42,12 @@ public class Formation {
         this.examens.add(examen);
     }
 
-    public long getIdF() {
-        return idF;
+    public long getId() {
+        return id;
     }
 
-    public void setIdF(long idF) {
-        this.idF = idF;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public int getDuree() {
