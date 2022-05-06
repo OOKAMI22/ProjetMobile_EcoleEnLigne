@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+object Intro
+object Login
+object Signeup
+object Profile
+object MenuPrincipal
+object MenuFormations
+object MenuCours
+object MenuQuizz
+object fragmentCours1
+object fragmentQuizz1
+
+
+
+Intro"connexion" --> Login
+Intro"inscription" --> Signeup
+Intro --> MenuFormations:"Decouvrir nos formations"
+
+Login -->  MenuPrincipal: se connecter
+MenuPrincipal --> MenuFormations:"Formations"
+MenuPrincipal --> MenuCours:" Mes Cours"
+MenuPrincipal --> Profile:" Profile"
+MenuPrincipal --> MenuQuizz:" Quizz"
+
+Signeup"s'inscrire" --> MenuCours
+
+MenuQuizz"Quizz 1" -->fragmentQuizz1
+MenuCours"Cours 1" -->fragmentCours1
+@enduml
