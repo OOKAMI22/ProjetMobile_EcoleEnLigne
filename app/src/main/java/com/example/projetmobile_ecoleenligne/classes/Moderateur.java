@@ -2,15 +2,47 @@ package com.example.projetmobile_ecoleenligne.classes;
 
 import java.util.ArrayList;
 
-public class Moderateur extends Utilisateur{
-    Grade grade;
-    ArrayList<Cours> cours = new ArrayList<Cours>();
+import static com.example.projetmobile_ecoleenligne.classes.Grade.*;
+
+
+public class Moderateur extends Utilisateur {
+
+    private Grade grade;
+    private ArrayList<Cours> cours = new ArrayList<Cours>();
+
+    public Grade getGrade() {
+        return grade;
+    }
+    public String getGradeString() {
+
+        switch(this.grade){
+
+            case Createur:
+                return "Createur";
+
+            case DataScientist:
+               return " Data Scientist";
+
+            case Mathematicien:
+                return "Mathematicien";
+            case ProPython:
+                return "Pro Python";
+
+            default:
+                return "Nouveau";
+        }
+
+    }
+
+    public ArrayList<Cours> getCours() {
+        return cours;
+    }
 
 
 
     public Moderateur( String nom, String prenom, String email, long numero, String mdp, String pays) {
         super(nom, prenom, email, numero, mdp, pays);
-        this.grade = Grade.Nouveau;
+        this.grade = Nouveau;
     }
     public Cours creerCours(String titre, String contenu,int nbHeures,Formation formation){
         Cours cours = new Cours(titre, contenu, nbHeures,this, formation);

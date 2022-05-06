@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.projetmobile_ecoleenligne.classes.Etudiant;
@@ -64,25 +65,38 @@ public class Login extends AppCompatActivity {
             Etudiant userConnected = gson.fromJson(userString, Etudiant.class);
             role = "etudiant";
             // Envoyer les information de l'utilisateur à l'intent suivante
-            Intent intention= new Intent(Login.this, DashboardEtudiant.class);
+            Intent intention= new Intent(Login.this, AcceuilActivity.class);
 
-            intention.putExtra("user",userConnected.toString());
+            intention.putExtra("user", userConnected);
+            intention.putExtra("userInfo",userConnected.toString());
             intention.putExtra("role",role);
+            intention.putExtra("formation",userConnected.getFormation());
             startActivity(intention);
         }
         else{
             url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ConnexionModerateur";
-            String userString = serveur.PostRequest(url, json).toString();
-            Moderateur userConnected = gson.fromJson(userString, Moderateur.class);
-            role = "moderateur";
+            if(!serveur.PostRequest(url, json).equals("")) {
+                String userString = serveur.PostRequest(url, json).toString();
+                Moderateur userConnected = gson.fromJson(userString, Moderateur.class);
+                role = "moderateur";
 
-            // Envoyer les information de l'utilisateur à l'intent suivante
-            Intent intention= new Intent(Login.this, DashboardEtudiant.class);
-
-            intention.putExtra("user",userConnected.toString());
-            intention.putExtra("role",role);
-            startActivity(intention);
+                // Envoyer les information de l'utilisateur à l'intent suivante
+                Intent intention = new Intent(Login.this, AcceuilActivity.class);
+                intention.putExtra("user", userConnected);
+                intention.putExtra("userInfo", userConnected.toString());
+                intention.putExtra("role", role);
+                intention.putExtra("grade", userConnected.getGradeString());
+                System.out.println("Login " + userConnected.getGradeString());
+                startActivity(intention);
+            }
+            else{
+                TextView erreur = findViewById(R.id.erreur);
+                String messageErreur = "Adresse mail ou mot de passe incorrecte";
+                erreur.setText(messageErreur);
+            }
         }
+
+
 
 
     }

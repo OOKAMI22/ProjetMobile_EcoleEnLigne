@@ -36,26 +36,7 @@ public class Formations extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*
-        //************* ObjectMapper *************
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            listeFormations = Arrays.asList(mapper.readValue(formationString, Formation[].class));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        System.out.println(listeFormations);
 
-        System.out.println("*********************");
-         */
-        /*
-        //************* Gson via classeIntermediare *************
-        Gson gson = new Gson();
-         FormationList nameList = gson.fromJson(formationString, FormationList.class);
-
-        List<Formation> list = nameList.getList();
-
-         */
         Gson gson = new Gson();
         listeFormations = gson.fromJson(formationString,  new TypeToken<ArrayList<Formation>>(){}.getType());
         System.out.println(listeFormations.get(0).getTitre());
@@ -66,8 +47,6 @@ public class Formations extends AppCompatActivity {
         for (Formation formation : listeFormations) {
 
         }
-
-
     }
 
 }

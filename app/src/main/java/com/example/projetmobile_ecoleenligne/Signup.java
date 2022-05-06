@@ -7,14 +7,10 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.projetmobile_ecoleenligne.classes.Etudiant;
-import com.example.projetmobile_ecoleenligne.classes.Formation;
 import com.example.projetmobile_ecoleenligne.classes.Serveur;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class Signup extends AppCompatActivity {
     EditText nomET;
@@ -75,7 +71,7 @@ public class Signup extends AppCompatActivity {
         String url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/InscriptionEtudiant";
         serveur.PutRequest(url,json);
 
-        Intent intention= new Intent(Signup.this, DashboardEtudiant.class);
+        Intent intention= new Intent(Signup.this, AcceuilActivity.class);
         intention.putExtra("etudiant",etudiant.toString());
 
 

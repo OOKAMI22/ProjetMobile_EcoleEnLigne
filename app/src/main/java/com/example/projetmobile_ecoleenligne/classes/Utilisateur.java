@@ -1,8 +1,11 @@
 package com.example.projetmobile_ecoleenligne.classes;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class Utilisateur {
+public class Utilisateur implements Parcelable {
     private long id;
     private String nom;
     private String prenom;
@@ -23,6 +26,28 @@ public class Utilisateur {
         this.setMdp(mdp);
         this.setPays(pays);
     }
+
+    protected Utilisateur(Parcel in) {
+        id = in.readLong();
+        nom = in.readString();
+        prenom = in.readString();
+        email = in.readString();
+        numero = in.readLong();
+        mot_de_passe = in.readString();
+        pays = in.readString();
+    }
+
+    public static final Creator<Utilisateur> CREATOR = new Creator<Utilisateur>() {
+        @Override
+        public Utilisateur createFromParcel(Parcel in) {
+            return new Utilisateur(in);
+        }
+
+        @Override
+        public Utilisateur[] newArray(int size) {
+            return new Utilisateur[size];
+        }
+    };
 
     public long getId() {
         return id;
@@ -84,4 +109,19 @@ public class Utilisateur {
         return this.getNom()+"$"+this.getPrenom()+"$"+this.getEmail()+"$"+this.getNumero()+"$"+this.getPays();
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(id);
+        parcel.writeString(nom);
+        parcel.writeString(prenom);
+        parcel.writeString(email);
+        parcel.writeLong(numero);
+        parcel.writeString(mot_de_passe);
+        parcel.writeString(pays);
+    }
 }

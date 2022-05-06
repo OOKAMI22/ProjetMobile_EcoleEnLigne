@@ -73,6 +73,15 @@
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
+            <TextView
+                    android:id="@+id/erreur"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="#FF0000" />
 
             <Button
                     android:id="@+id/btnLogin"
