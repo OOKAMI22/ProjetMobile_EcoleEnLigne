@@ -8,14 +8,15 @@
         tools:context=".FormationsActivity">
     <ImageView
             android:id="@+id/imageView"
-            android:layout_width="400dp"
-            android:layout_height="200dp"
+            android:layout_width="427dp"
+            android:layout_height="128dp"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toStartOf="@+id/recyclerView"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/happy_moc" />
+            app:srcCompat="@drawable/happy_moc"/>
+
     <EditText
             android:id="@+id/recherche"
             android:layout_width="0dp"
@@ -34,8 +35,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
+            app:layout_constraintTop_toBottomOf="@+id/imageView" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0"/>
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
