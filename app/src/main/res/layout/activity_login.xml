@@ -53,6 +53,9 @@
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
                     android:hint="Entrez votre email"
+
+                    android:text="sabrinefarah22@gmail.com"
+
                     android:inputType="textEmailAddress"
                     android:padding="16dp"
                     android:textColorHint="#636363"
@@ -69,6 +72,9 @@
                     android:background="@drawable/grey_edt_background"
                     android:ems="10"
                     android:hint="Entrez votre mot de passe"
+
+                    android:text="12345"
+
                     android:inputType="textPassword"
                     android:padding="16dp"
                     android:textColorHint="#636363"
