@@ -73,7 +73,9 @@
                     android:ems="10"
                     android:hint="Entrez votre mot de passe"
 
+
                     android:text="12345"
+
 
                     android:inputType="textPassword"
                     android:padding="16dp"
