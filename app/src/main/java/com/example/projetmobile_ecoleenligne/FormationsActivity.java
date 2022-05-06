@@ -6,7 +6,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.projetmobile_ecoleenligne.classes.CustomListAdapterFormation;
+import com.example.projetmobile_ecoleenligne.classes.CustomRecyclerViewAdapter;
 import com.example.projetmobile_ecoleenligne.classes.Formation;
 import com.example.projetmobile_ecoleenligne.classes.Serveur;
 import com.google.gson.Gson;
@@ -17,7 +20,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class FormationsActivity extends AppCompatActivity {
-    ArrayList<Formation> listeFormations = new ArrayList<>();;
+    ArrayList<Formation> listeFormations = new ArrayList<>();
+    public static final String LOG_TAG = "AndroidExample";
+    private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +32,7 @@ public class FormationsActivity extends AppCompatActivity {
         Serveur serveur = new Serveur();
         String json = "";
         String url = "http://192.168.1.74:8080/EcoleEnLigne/formation/GetFormation";
-        System.out.println("*********************");
+
 
         String formationString = null;
        try {
@@ -38,23 +44,14 @@ public class FormationsActivity extends AppCompatActivity {
         Gson gson = new Gson();
         listeFormations = gson.fromJson(formationString,  new TypeToken<ArrayList<Formation>>(){}.getType());
         System.out.println(listeFormations.get(0).getTitre());
-        afficheFormations( listeFormations);
+        //Affichage
+        this.recyclerView = (RecyclerView) this.findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(new CustomRecyclerViewAdapter(this,listeFormations));
+        // RecyclerView scroll vertical
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
-    public void afficheFormations(ArrayList<Formation> listeFormations) {
-        final ListView listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(new CustomListAdapterFormation(this,listeFormations));
 
-        // When the user clicks on the ListItem
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                Object o = listView.getItemAtPosition(position);
-                Formation formation = (Formation) o;
-                Toast.makeText(FormationsActivity.this, "Selected :" + " " + formation, Toast.LENGTH_LONG).show();
-            }
-        });
-    }
 
 
 

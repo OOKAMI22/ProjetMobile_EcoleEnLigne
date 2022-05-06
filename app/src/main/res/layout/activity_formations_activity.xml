@@ -6,9 +6,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".FormationsActivity">
+    <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/recyclerView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/happy_moc" />
+    <EditText
+            android:id="@+id/recherche"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="?android:attr/actionModeWebSearchDrawable"
+            android:elevation="20dp"
+            android:ems="10"
+            android:hint="Recherche"
+            android:inputType="textPersonName"
 
-    <ListView
-            android:id="@+id/listView"
+            android:padding="10dp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -19,6 +48,6 @@
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/recherche"
+            app:layout_constraintTop_toBottomOf="@+id/recherche"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
