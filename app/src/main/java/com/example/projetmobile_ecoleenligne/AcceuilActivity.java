@@ -5,9 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.projetmobile_ecoleenligne.classes.Etudiant;
 import com.example.projetmobile_ecoleenligne.classes.Formation;
-import com.example.projetmobile_ecoleenligne.classes.Moderateur;
 import com.example.projetmobile_ecoleenligne.classes.Utilisateur;
 
 public class AcceuilActivity extends AppCompatActivity {
@@ -27,7 +25,7 @@ public class AcceuilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard_etudiant);
+        setContentView(R.layout.activity_acceuil);
         // get mon intent
         extras = getIntent().getExtras();
         userInfo = extras.getString("userInfo");
@@ -62,7 +60,7 @@ public class AcceuilActivity extends AppCompatActivity {
         cours.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intention= new Intent(AcceuilActivity.this, Quizz.class);
+                Intent intention= new Intent(AcceuilActivity.this, MesCoursActivity.class);
                 intention.putExtra("user",user);
                 intention.putExtra("role",role);
                 intention.putExtra("formation",formationEtu);
@@ -74,7 +72,7 @@ public class AcceuilActivity extends AppCompatActivity {
         formation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intention= new Intent(AcceuilActivity.this, Formations.class);
+                Intent intention= new Intent(AcceuilActivity.this, FormationsActivity.class);
                 intention.putExtra("user",user);
                 intention.putExtra("role",role);
                 intention.putExtra("formation",formationEtu);

@@ -13,10 +13,13 @@
             android:theme="@style/Theme.ProjetMobile_EcoleEnLigne"
             android:usesCleartextTraffic="true">
         <activity
+                android:name=".MesCoursActivity"
+                android:exported="true"/>
+        <activity
                 android:name=".AddCoursActivity"
                 android:exported="true"/>
         <activity
-                android:name=".Formations"
+                android:name=".FormationsActivity"
                 android:exported="true"/>
         <activity
                 android:name=".Quizz"

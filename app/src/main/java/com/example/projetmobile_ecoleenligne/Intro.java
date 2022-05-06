@@ -14,6 +14,7 @@ import com.example.projetmobile_ecoleenligne.classes.Utilisateur;
 public class Intro extends AppCompatActivity {
     Button btnLogin;
     Button btnSignUp;
+    Button btnFormations;
     // car on sait pas encore si c'est un etudiant ou un moderateur
     Utilisateur user;
 
@@ -22,8 +23,9 @@ public class Intro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        btnSignUp = (Button) this.findViewById(R.id.btnSignup);
-        btnLogin = (Button) this.findViewById(R.id.btnLogin);
+        btnSignUp = this.findViewById(R.id.btnSignup);
+        btnLogin =  this.findViewById(R.id.btnLogin);
+        btnFormations = this.findViewById(R.id.btnFormations);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +41,13 @@ public class Intro extends AppCompatActivity {
             }
         });
 
+        btnFormations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goFormation(view);
+            }
+        });
+
     }
     public void signUP(View view) {
         Intent intention= new Intent(Intro.this, Signup.class);
@@ -47,6 +56,11 @@ public class Intro extends AppCompatActivity {
 
     public void login(View view) {
         Intent intention= new Intent(Intro.this, Login.class);
+
+        startActivity(intention);
+    }
+    public void goFormation(View view) {
+        Intent intention= new Intent(Intro.this, FormationsActivity.class);
 
         startActivity(intention);
     }

@@ -1,29 +1,27 @@
 package com.example.projetmobile_ecoleenligne;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.projetmobile_ecoleenligne.classes.CustomListAdapterFormation;
 import com.example.projetmobile_ecoleenligne.classes.Formation;
 import com.example.projetmobile_ecoleenligne.classes.Serveur;
-import com.example.projetmobile_ecoleenligne.classes.FormationList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class Formations extends AppCompatActivity {
+public class FormationsActivity extends AppCompatActivity {
     ArrayList<Formation> listeFormations = new ArrayList<>();;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formations);
+        setContentView(R.layout.activity_formations_activity);
         // Interroger la BD pour récuperer la liste des formations disponibles
         Serveur serveur = new Serveur();
         String json = "";
@@ -43,10 +41,21 @@ public class Formations extends AppCompatActivity {
         afficheFormations( listeFormations);
     }
     public void afficheFormations(ArrayList<Formation> listeFormations) {
+        final ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(new CustomListAdapterFormation(this,listeFormations));
 
-        for (Formation formation : listeFormations) {
+        // When the user clicks on the ListItem
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        }
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                Object o = listView.getItemAtPosition(position);
+                Formation formation = (Formation) o;
+                Toast.makeText(FormationsActivity.this, "Selected :" + " " + formation, Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
+
 
 }

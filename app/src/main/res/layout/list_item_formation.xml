@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:orientation="vertical">
+
+
+    <TextView
+            android:id="@+id/titre"
+            android:text="Intitulé "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="2mm"/>
+
+    <TextView
+            android:id="@+id/description"
+            android:text="Descritpion "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"/>
+    <TextView
+            android:id="@+id/duree"
+            android:text="Duree "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"/>
+    <TextView
+            android:id="@+id/prix"
+            android:text="Prix "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:layout_marginBottom="2mm"/>
+
+
+</LinearLayout>
