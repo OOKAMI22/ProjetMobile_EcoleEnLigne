@@ -15,8 +15,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MesCoursActivity extends AppCompatActivity {
-    ArrayList<Cours> listeCours = new ArrayList<>();
+public class MesExamensActivity extends AppCompatActivity {
+    ArrayList<Examen> listeExamens = new ArrayList<>();
     Button btn;
     Bundle extras;
     String role;
@@ -24,7 +24,7 @@ public class MesCoursActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mes_cours);
+        setContentView(R.layout.activity_mes_examens);
         btn = findViewById(R.id.btn);
         // get mon intent
         extras = getIntent().getExtras();
@@ -35,12 +35,12 @@ public class MesCoursActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = "";
         String url = "http://192.168.1.74:8080/EcoleEnLigne/formation";
-        String coursString = "";
+        String examenString = "";
 
         if(role.equals("moderateur")){
-            url += "/GetCours";
+            url += "/GetExamens";
             try {
-                coursString = serveur.PostRequest(url,json);
+                examenString = serveur.PostRequest(url,json);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -58,21 +58,21 @@ public class MesCoursActivity extends AppCompatActivity {
             Formation formation = extras.getParcelable("formation");
             //Formation to Json
             json = gson.toJson(formation);
-            url += "/GetMesCours";
+            url += "/GetMesExamens";
             try {
-                coursString = serveur.PostRequest(url,json);
+                examenString = serveur.PostRequest(url,json);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        listeCours = gson.fromJson(coursString,  new TypeToken<ArrayList<Cours>>(){}.getType());
-        System.out.println(listeCours.get(0).getContenu());
+        listeExamens = gson.fromJson(examenString,  new TypeToken<ArrayList<Examen>>(){}.getType());
+        System.out.println(listeExamens.get(0).getTitre());
 
-        afficheCours(listeCours);
+        afficheExamens(listeExamens);
     }
-    public void afficheCours(ArrayList<Cours> listeCours) {
+    public void afficheExamens(ArrayList<Examen> listeExamens) {
         final ListView listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(new CustomListAdapterCours(this,listeCours));
+        listView.setAdapter(new CustomListAdapterExamen(this,listeExamens));
 
         // When the user clicks on the ListItem
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,16 +80,14 @@ public class MesCoursActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = listView.getItemAtPosition(position);
-                Cours cours = (Cours) o;
-                Toast.makeText(MesCoursActivity.this, "Selected :" + " " + cours, Toast.LENGTH_LONG).show();
-                Intent intention= new Intent(MesCoursActivity.this, CoursActivity.class);
-                intention.putExtra("cours",cours);
-                startActivity(intention);
+                Examen examen = (Examen) o;
+                Toast.makeText(MesExamensActivity.this, "Selected :" + " " + examen, Toast.LENGTH_LONG).show();
             }
         });
     }
     public void addCours(View view) {
-        Intent intention= new Intent(MesCoursActivity.this, AddCoursActivity.class);
+        Intent intention= new Intent(MesExamensActivity.this, AddCoursActivity.class);
         startActivity(intention);
     }
+
 }

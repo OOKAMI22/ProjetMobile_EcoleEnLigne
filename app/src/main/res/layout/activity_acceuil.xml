@@ -124,7 +124,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/icon6" />
+                        app:srcCompat="@drawable/coursenligne" />
 
                 <TextView
                         android:id="@+id/description"
@@ -203,7 +203,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/icon6" />
+                        app:srcCompat="@drawable/profil" />
 
                 <TextView
                         android:id="@+id/textView4"

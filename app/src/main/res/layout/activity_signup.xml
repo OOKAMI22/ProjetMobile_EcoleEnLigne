@@ -104,36 +104,25 @@
                     android:padding="16dp"
                     android:textColorHint="#636363"
                     android:textSize="18sp" />
-            <EditText
-                    android:id="@+id/pays"
+
+            <Spinner
+                    android:id="@+id/paysSp"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="32dp"
+                    android:background="@drawable/grey_edt_background"/>
 
-                    android:background="@drawable/grey_edt_background"
-                    android:ems="10"
-                    android:hint="Entrez votre pays"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:textColorHint="#636363"
-                    android:textSize="18sp" />
-            <EditText
-                    android:id="@+id/formation"
+            <Spinner
+                    android:id="@+id/user"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="32dp"
+                    android:background="@drawable/grey_edt_background"/>
 
-                    android:background="@drawable/grey_edt_background"
-                    android:ems="10"
-                    android:hint="Entrez votre choix de formation"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:textColorHint="#636363"
-                    android:textSize="18sp" />
             <EditText
                     android:id="@+id/mdp"
                     android:layout_width="match_parent"

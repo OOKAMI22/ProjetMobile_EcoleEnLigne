@@ -2,14 +2,14 @@ package com.example.projetmobile_ecoleenligne.classes;
 
 public class Etudiant extends Utilisateur{
     private float moyenne;
-    private Formation formation;
+    private long id_formation;
     private int avancement;
 
 
     public Etudiant( String nom, String prenom, String email, long numero, String mdp, String pays,Formation formation) {
         super( nom, prenom, email, numero, mdp, pays);
         this.setMoyenne(0);
-        this.setFormation(formation);
+        this.setFormation(formation.getId());
     }
     public Etudiant() {
         super();
@@ -23,12 +23,12 @@ public class Etudiant extends Utilisateur{
         this.moyenne = moyenne;
     }
 
-    public Formation getFormation() {
-        return formation;
+    public long getFormation() {
+        return id_formation;
     }
 
-    public void setFormation(Formation formation) {
-        this.formation = formation;
+    public void setFormation(long formation) {
+        this.id_formation = formation;
     }
 
 

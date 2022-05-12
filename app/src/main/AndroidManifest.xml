@@ -13,35 +13,50 @@
             android:theme="@style/Theme.ProjetMobile_EcoleEnLigne"
             android:usesCleartextTraffic="true">
         <activity
-                android:name=".MesCoursActivity"
+                android:name=".CoursActivity"
                 android:exported="true"/>
+        <activity
+                android:name=".MesExamensActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".MesCoursActivity"
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
                 android:name=".AddCoursActivity"
-                android:exported="true"/>
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
                 android:name=".FormationsActivity"
-                android:exported="true"/>
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
                 android:name=".Quizz"
-                android:exported="true"/>
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
                 android:name=".AcceuilActivity"
-                android:exported="true">
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity
                 android:name=".Profile"
-                android:exported="true"/>
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
                 android:name=".Signup"
-                android:exported="true">
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity
                 android:name=".Login"
-                android:exported="true">
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity
                 android:name=".Intro"
-                android:exported="true">
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

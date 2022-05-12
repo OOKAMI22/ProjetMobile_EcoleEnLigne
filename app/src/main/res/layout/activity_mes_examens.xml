@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MesCoursActivity">
+        tools:context=".MesExamensActivity">
     <ImageView
             android:id="@+id/imageView"
             android:layout_width="427dp"
@@ -60,7 +60,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/blue_btn_background"
-            android:text="Ajouter un cours"
+            android:text="Ajouter un Examen"
             android:textColor="#ffffff"
             android:textSize="22sp"
             android:textStyle="bold"

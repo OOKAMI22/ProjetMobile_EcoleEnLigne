@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });;
+        });
     }
 
     public void connexion(View view) throws IOException {
@@ -57,6 +57,7 @@ public class Login extends AppCompatActivity {
         // Interroger la bdd sur les 2 string
         Serveur serveur = new Serveur();
         String url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ConnexionEtudiant";
+
         System.out.println("*********************");
         System.out.println(serveur.PostRequest(url,json));
         System.out.println("*********************");
@@ -70,7 +71,7 @@ public class Login extends AppCompatActivity {
             intention.putExtra("user", userConnected);
             intention.putExtra("userInfo",userConnected.toString());
             intention.putExtra("role",role);
-            intention.putExtra("formation",userConnected.getFormation());
+            intention.putExtra("formation",""+userConnected.getFormation());
             startActivity(intention);
         }
         else{

@@ -106,4 +106,8 @@ public class Formation implements Parcelable {
         parcel.writeInt(duree);
         parcel.writeFloat(prix);
     }
+    @Override
+    public String toString() {
+        return this.titre;
+    }
 }

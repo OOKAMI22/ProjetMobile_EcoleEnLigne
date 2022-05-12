@@ -1,58 +1,76 @@
 package com.example.projetmobile_ecoleenligne.classes;
 
-public class Cours {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Cours implements Parcelable {
+
     private long id;
     private String titre;
     private String contenu;
     private int nbHeure;
-    private Moderateur mod;
-    private Formation formation;
+    private long id_moderateur;
+    private long id_formation;
 
-    public Cours(String titre, String contenu, int nbHeure, Moderateur mod, Formation formation) {
+    public Cours( String titre, String contenu,int nbheure,long id_moderateur,long id_formation) {
         this.titre = titre;
         this.contenu = contenu;
-        this.nbHeure = nbHeure;
-        this.mod = mod;
-        this.formation = formation;
+        this.nbHeure = nbheure;
+        this.id_formation = id_formation;
+        this.id_moderateur = id_moderateur;
     }
 
+    public Cours() {}
+
+    protected Cours(Parcel in) {
+        id = in.readLong();
+        titre = in.readString();
+        contenu = in.readString();
+        nbHeure = in.readInt();
+        id_moderateur = in.readLong();
+        id_formation = in.readLong();
+    }
+
+    public static final Creator<Cours> CREATOR = new Creator<Cours>() {
+        @Override
+        public Cours createFromParcel(Parcel in) {
+            return new Cours(in);
+        }
+
+        @Override
+        public Cours[] newArray(int size) {
+            return new Cours[size];
+        }
+    };
+
+    public long getId() {
+        return this.id;
+    }
     public String getTitre() {
-        return titre;
+        return this.titre;
     }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
-
     public String getContenu() {
-        return contenu;
+        return this.contenu;
     }
-
-    public void setContenu(String contenu) {
-        this.contenu = contenu;
-    }
-
     public int getNbHeure() {
-        return nbHeure;
+        return this.nbHeure;
+    }
+    public long getIdFormation() {
+        return this.id_formation;
     }
 
-    public void setNbHeure(int nbHeure) {
-        this.nbHeure = nbHeure;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public Moderateur getMod() {
-        return mod;
-    }
-
-    public void setMod(Moderateur mod) {
-        this.mod = mod;
-    }
-
-    public Formation getFormation() {
-        return formation;
-    }
-
-    public void setFormation(Formation formation) {
-        this.formation = formation;
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(id);
+        parcel.writeString(titre);
+        parcel.writeString(contenu);
+        parcel.writeInt(nbHeure);
+        parcel.writeLong(id_moderateur);
+        parcel.writeLong(id_formation);
     }
 }

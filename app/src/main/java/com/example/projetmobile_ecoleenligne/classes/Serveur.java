@@ -1,16 +1,19 @@
 package com.example.projetmobile_ecoleenligne.classes;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Serveur {
-    public Serveur(){
-
-    }
+    public Serveur(){}
     public void PutRequest(String url,String json) throws IOException {
         Thread thread = new Thread(new Runnable() {
 
@@ -89,5 +92,20 @@ public class Serveur {
         }
 
         return result[0];
+    }
+
+    public Formation getFormationById(long id){
+        Gson gson = new Gson();
+        String json = "";
+        String url = "http://192.168.1.74:8080/EcoleEnLigne/formation";
+        String formationString = gson.toJson(id);
+        url += "/FormationById";
+        try {
+            formationString = this.PostRequest(url,json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        List<Formation> listeFormation = gson.fromJson(formationString,  new TypeToken<ArrayList<Formation>>(){}.getType());
+        return listeFormation.get(0);
     }
 }

@@ -39,7 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Inscrivez-vous"
+                        android:text="Ajouter Votre Cours"
                         android:textAlignment="center"
                         android:textColor="#0757F6"
                         android:textSize="24sp"
@@ -90,21 +90,14 @@
                         android:padding="16dp"
                         android:textColorHint="#636363"
                         android:textSize="18sp" />
-                <EditText
-                        android:id="@+id/numero"
+                <Spinner
+                        android:id="@+id/formation"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginEnd="32dp"
-
-                        android:background="@drawable/grey_edt_background"
-                        android:ems="10"
-                        android:hint="Entrez votre numero de téléphone"
-                        android:inputType="phone"
-                        android:padding="16dp"
-                        android:textColorHint="#636363"
-                        android:textSize="18sp" />
+                        android:background="@drawable/grey_edt_background"/>
 
                 <Button
                         android:id="@+id/btn"

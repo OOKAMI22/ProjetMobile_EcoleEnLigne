@@ -4,7 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   android:background="#ffffff"
+                                                   android:background="#f4f4fD"
                                                    tools:context=".Intro">
 
     <ScrollView
@@ -21,26 +21,27 @@
                 android:orientation="vertical">
 
             <TextView
-                    android:id="@+id/titre"
+                    android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="30dp"
                     android:text="Bienvenu sur HappyMooc !"
                     android:textAlignment="center"
                     android:textColor="#000"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+            />
 
-                <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/happy_mooc" />
+            <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="268dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/happy_mooc" />
 
             <Button
                     android:id="@+id/btnFormations"
@@ -54,36 +55,38 @@
                     android:text="Découvrir les formations"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
 
             <Button
+                    android:layout_marginStart="32dp"
                     android:id="@+id/btnSignup"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="32dp"
                     android:background="@drawable/blue_btn_background"
                     android:text="Inscription"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="normal" />
+
             <Button
+                    android:layout_marginStart="32dp"
                     android:id="@+id/btnLogin"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/blue_btn_background"
                     android:text="Connexion"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
         </LinearLayout>
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

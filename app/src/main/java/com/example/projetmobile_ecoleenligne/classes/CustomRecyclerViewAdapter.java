@@ -48,8 +48,8 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<FormationVie
 
         holder.titreView.setText(formation.getTitre());
         holder.descriptionView.setText("Description : " + formation.getDescription());
-        holder.dureeView.setText("Duree : " + formation.getDuree());
-        holder.prixView.setText("prix : " + formation.getPrix());
+        holder.dureeView.setText("Duree : " + formation.getDuree()+" jours");
+        holder.prixView.setText("prix : " + formation.getPrix()+" €");
     }
 
     @Override

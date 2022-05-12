@@ -10,15 +10,14 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.example.projetmobile_ecoleenligne.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class CustomListAdapterCours extends BaseAdapter{
-    private List<Cours> listData;
+public class CustomListAdapterExamen extends BaseAdapter {
+    private List<Examen> listData;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public CustomListAdapterCours(Context aContext, List<Cours> listData) {
+    public CustomListAdapterExamen(Context aContext, List<Examen> listData) {
         this.context = aContext;
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
@@ -47,14 +46,13 @@ public class CustomListAdapterCours extends BaseAdapter{
             holder = new CustomListAdapterFormation.ViewHolder();
             //holder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
             holder.titreView = (TextView) convertView.findViewById(R.id.titre);
-
             convertView.setTag(holder);
         } else {
             holder = (CustomListAdapterFormation.ViewHolder) convertView.getTag();
         }
 
-        Cours cours = this.listData.get(position);
-        holder.titreView.setText(cours.getTitre());
+        Examen examen = this.listData.get(position);
+        holder.titreView.setText(examen.getTitre());
 
 
         //int imageId = this.getMipmapResIdByName(formation.getTitre());
@@ -76,7 +74,6 @@ public class CustomListAdapterCours extends BaseAdapter{
     static class ViewHolder {
         //ImageView imageView;
         TextView titreView;
-
     }
 
 }

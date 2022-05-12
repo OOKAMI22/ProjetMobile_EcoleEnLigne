@@ -15,8 +15,9 @@
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/drawable/grey_edt_background.xml" value="0.32760416666666664" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/drawable/top_button_background.xml" value="0.32760416666666664" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/drawable/white_background.xml" value="0.32760416666666664" />
-        <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_acceuil.xml" value="0.25" />
+        <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_acceuil.xml" value="0.1" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_add_cours.xml" value="0.16041666666666668" />
+        <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_cours.xml" value="0.21603260869565216" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_dashboard_etudiant.xml" value="0.1" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_formations.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_formationsActivity.xml" value="0.2586050724637681" />
@@ -25,11 +26,14 @@
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_login.xml" value="0.21467391304347827" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_main.xml" value="0.21467391304347827" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_mes_cours.xml" value="0.2586050724637681" />
+        <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_mes_examens.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_quizz.xml" value="0.2586050724637681" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/activity_signup.xml" value="0.1" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/item_foormation.xml" value="0.1453125" />
+        <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/list_item_examen.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/list_item_formation.xml" value="0.1" />
+        <entry key="..\:/Users/sabri/Desktop/DevMobile/ProjetMobile_EcoleEnLigne/app/src/main/res/layout/spinner.xml" value="0.1403985507246377" />
       </map>
     </option>
   </component>

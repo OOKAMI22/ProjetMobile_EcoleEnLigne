@@ -2,6 +2,7 @@ package com.example.projetmobile_ecoleenligne;
 
 import android.content.Intent;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,11 +21,13 @@ public class AcceuilActivity extends AppCompatActivity {
 
     Formation formationEtu = new Formation();
     String grade = "";
+    String formatioString = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_acceuil);
         // get mon intent
         extras = getIntent().getExtras();
@@ -37,7 +40,7 @@ public class AcceuilActivity extends AppCompatActivity {
             grade = extras.getString("grade");
         }
         else{
-            formationEtu = getIntent().getParcelableExtra("formation");
+            formatioString = extras.getString("formation");
         }
         System.out.println("Accueil "+grade);
 
@@ -48,7 +51,7 @@ public class AcceuilActivity extends AppCompatActivity {
         quizz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intention= new Intent(AcceuilActivity.this, Quizz.class);
+                Intent intention= new Intent(AcceuilActivity.this, MesExamensActivity.class);
                 intention.putExtra("user",user);
                 intention.putExtra("role",role);
                 intention.putExtra("formation",formationEtu);
@@ -87,7 +90,7 @@ public class AcceuilActivity extends AppCompatActivity {
                 Intent intention= new Intent(AcceuilActivity.this, Profile.class);
                 intention.putExtra("user",user);
                 intention.putExtra("role",role);
-                intention.putExtra("formation",formationEtu);
+                intention.putExtra("formation",formatioString);
                 intention.putExtra("grade",grade);
                 startActivity(intention);
             }

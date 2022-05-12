@@ -10,12 +10,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.projetmobile_ecoleenligne.classes.Etudiant;
-import com.example.projetmobile_ecoleenligne.classes.Formation;
-import com.example.projetmobile_ecoleenligne.classes.Moderateur;
-import com.example.projetmobile_ecoleenligne.classes.Utilisateur;
+import com.example.projetmobile_ecoleenligne.classes.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Profile extends AppCompatActivity {
     Utilisateur user;
@@ -28,6 +29,8 @@ public class Profile extends AppCompatActivity {
     String role;
     ImageView logoutImg;
     TextView changerMdp;
+    String formationString = "";
+    List<Formation> listeFormations = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +60,28 @@ public class Profile extends AppCompatActivity {
             System.out.println("Profile "+grade);
         }
         else{
-            Formation formation = extras.getParcelable("formation");
-            //variableValue.setText(formation.getTitre());
+            //Formation formation = extras.getParcelable("formation");
+            formationString = extras.getString("formation");
+            Serveur serveur = new Serveur();
+            String json = "";
+            String url = "http://192.168.1.74:8080/EcoleEnLigne/formation/GetFormation";
+
+
+            String formationString = null;
+            try {
+                formationString = serveur.PostRequest(url,json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String formation = " Python";
+            Gson gson = new Gson();
+            listeFormations = gson.fromJson(formationString,  new TypeToken<ArrayList<Formation>>(){}.getType());
+            for(Formation f : listeFormations){
+                if ((""+f.getId()).equals(formationString)){
+                    formation = f.getTitre();
+                }
+            }
+            variableValue.setText(formation);
         }
 
         logoutImg = findViewById(R.id.logout);
@@ -89,10 +112,18 @@ public class Profile extends AppCompatActivity {
         builder.setPositiveButton(R.string.valider, new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialogInterface, int id){
-                Toast.makeText(Profile.this,R.string.positif, Toast.LENGTH_LONG).show();
-                System.out.println(nom.getText().toString());
-
-                System.out.println(numero.getText().toString());
+                String mdpValue = edittext.getText().toString();
+                //Toast.makeText(Profile.this,R.string.positif, Toast.LENGTH_LONG).show();
+                user.setMdp(mdpValue);
+                String url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ChangerMdp";
+                Gson gson = new Gson();
+                String json = gson.toJson(user);
+                Serveur serveur = new Serveur();
+                try {
+                    serveur.PutRequest(url,json);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 //mon intent
                 /*

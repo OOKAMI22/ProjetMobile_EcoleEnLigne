@@ -3,6 +3,7 @@ package com.example.projetmobile_ecoleenligne;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class Intro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+        
 
         btnSignUp = this.findViewById(R.id.btnSignup);
         btnLogin =  this.findViewById(R.id.btnLogin);
