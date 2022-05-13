@@ -48,7 +48,7 @@ public class MesExamensActivity extends AppCompatActivity {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    addCours(view);
+                    addExamen(view);
                 }
             });
 
@@ -65,8 +65,12 @@ public class MesExamensActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+        System.out.println(examenString);
         listeExamens = gson.fromJson(examenString,  new TypeToken<ArrayList<Examen>>(){}.getType());
         System.out.println(listeExamens.get(0).getTitre());
+        for(Examen e : listeExamens){
+            System.out.println("Titre " + e.getTitre()+ " Formation "+e.getIdFormation());
+        }
 
         afficheExamens(listeExamens);
     }
@@ -81,12 +85,19 @@ public class MesExamensActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = listView.getItemAtPosition(position);
                 Examen examen = (Examen) o;
-                Toast.makeText(MesExamensActivity.this, "Selected :" + " " + examen, Toast.LENGTH_LONG).show();
+                Toast.makeText(MesExamensActivity.this, "Selected :" + " " + examen.getListeReponse(), Toast.LENGTH_LONG).show();
+                Intent intention= new Intent(MesExamensActivity.this, ExamenActivity.class);
+                //intention.putExtra("examen",examen); on ne peut pas car listeReponse n'est pas parceable
+                Gson gson = new Gson();
+                String json = gson.toJson(examen);
+                intention.putExtra("examen",json);
+                System.out.println(examen.getListeReponse());
+                startActivity(intention);
             }
         });
     }
-    public void addCours(View view) {
-        Intent intention= new Intent(MesExamensActivity.this, AddCoursActivity.class);
+    public void addExamen(View view) {
+        Intent intention= new Intent(MesExamensActivity.this, AddExamenActivity.class);
         startActivity(intention);
     }
 
