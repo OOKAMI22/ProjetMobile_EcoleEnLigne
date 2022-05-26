@@ -1,10 +1,10 @@
 package com.example.projetmobile_ecoleenligne;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.projetmobile_ecoleenligne.classes.Etudiant;
 import com.example.projetmobile_ecoleenligne.classes.Formation;
 import com.example.projetmobile_ecoleenligne.classes.Serveur;
@@ -12,7 +12,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
-import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class Signup extends AppCompatActivity {
@@ -58,16 +57,7 @@ public class Signup extends AppCompatActivity {
         });;
         // Interroger la BD pour récuperer la liste des formations disponibles
         Serveur serveur = new Serveur();
-        String json = "";
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/formation/GetFormation";
-
-
-        String formationString = null;
-        try {
-            formationString = serveur.PostRequest(url,json);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String formationString = serveur.getListeFormation();
 
         Gson gson = new Gson();
         listeFormations = gson.fromJson(formationString,  new TypeToken<ArrayList<Formation>>(){}.getType());
@@ -105,18 +95,16 @@ public class Signup extends AppCompatActivity {
         String mdp = mdpET.getText().toString();
         //utilisateur étudiant crée
         etudiant = new Etudiant( nom, prenom, email, numero, mdp, pays,formation);
-        Gson gons = new Gson();
-        String json = gons.toJson(etudiant);
-        System.out.println(json);
+
 
 
         // Reste à inserer le tuple dans la bdd via le serveur
         Serveur serveur = new Serveur();
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/InscriptionEtudiant";
-        serveur.PutRequest(url,json);
+        serveur.putEtudiant(etudiant);
 
         Intent intention= new Intent(Signup.this, AcceuilActivity.class);
-        intention.putExtra("etudiant",etudiant.toString());
+        intention.putExtra("user",etudiant.toString());
+        intention.putExtra("role","etudiant");
 
 
         startActivity(intention);

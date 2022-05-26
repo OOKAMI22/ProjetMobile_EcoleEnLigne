@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Serveur {
+    private String url = "http://172.20.10.3:8080/EcoleEnLigne/";
     public Serveur(){}
     public void PutRequest(String url,String json) throws IOException {
         Thread thread = new Thread(new Runnable() {
@@ -96,10 +97,10 @@ public class Serveur {
 
     public Formation getFormationById(long id){
         Gson gson = new Gson();
-        String json = "";
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/formation";
+        String json = ""+id;
+
         String formationString = gson.toJson(id);
-        url += "/FormationById";
+        String url = this.url+"formation/FormationById";
         try {
             formationString = this.PostRequest(url,json);
         } catch (IOException e) {
@@ -108,4 +109,148 @@ public class Serveur {
         List<Formation> listeFormation = gson.fromJson(formationString,  new TypeToken<ArrayList<Formation>>(){}.getType());
         return listeFormation.get(0);
     }
+    public void addNote(Note note) throws IOException {
+        Gson gons = new Gson();
+        String json = gons.toJson(note);
+        System.out.println(json);
+
+
+        // Reste à inserer le tuple dans la bdd via le serveur
+        Serveur serveur = new Serveur();
+        String url = this.url+"formation/AddNote";
+        serveur.PutRequest(url,json);
+    }
+
+    public String getEtudiant(String email,String mdp) throws IOException {
+        Utilisateur user = new Utilisateur();
+        user.setEmail(email);
+        user.setMdp(mdp);
+        // to Json
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        System.out.println(json);
+        String role = "";
+        // Interroger la bdd sur les 2 string
+        Serveur serveur = new Serveur();
+        String url = this.url + "utilisateur/ConnexionEtudiant";
+
+        return this.PostRequest(url, json);
+    }
+
+    public String getModerateur(String email,String mdp) throws IOException {
+        Utilisateur user = new Utilisateur();
+        user.setEmail(email);
+        user.setMdp(mdp);
+        // to Json
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        System.out.println(json);
+        String role = "";
+        // Interroger la bdd sur les 2 string
+        String url = this.url + "utilisateur/ConnexionModerateur";
+
+        return this.PostRequest(url, json);
+    }
+    public void putEtudiant(Etudiant e) throws IOException {
+        String url = this.url + "utilisateur/InscriptionEtudiant";
+        Gson gons = new Gson();
+        String json = gons.toJson(e);
+        System.out.println(json);
+        this.PutRequest(url,json);
+    }
+    public void changerMDP(Utilisateur user,String mdp) throws IOException {
+        user.setMdp(mdp);
+        String url = this.url+"utilisateur/ChangerMdp";
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        this.PutRequest(url,json);
+
+
+    }
+
+    public String getListeFormation(){
+        String json = "";
+        String url = this.url+"formation/GetFormation";
+
+        String formationString = null;
+        try {
+            formationString = this.PostRequest(url,json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return formationString;
+    }
+    public String getFormationById2(long id)  {
+        String url = this.url + "formation/FormationById";
+        Gson gons = new Gson();
+        String json = gons.toJson(id);
+        String formationString = null;
+        try {
+            formationString = this.PostRequest(url, json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return formationString;
+    }
+
+    public void addCours(Cours c) throws IOException {
+        Gson gons = new Gson();
+        String json = gons.toJson(c);
+        System.out.println(json);
+
+        // Reste à inserer le tuple dans la bdd via le serveur
+        Serveur serveur = new Serveur();
+        String url = this.url+"formation/AddCours";
+        this.PutRequest(url,json);
+    }
+    public String getCours(){
+        Gson gson = new Gson();
+        String json = "";
+        String url = this.url+"formation/GetCours";
+        String coursString = "";
+        try {
+            coursString = this.PostRequest(url,json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return coursString;
+    }
+    public String getMesCours(long id){
+        Gson gson = new Gson();
+        String json = gson.toJson(id);
+        String url = this.url+"formation/GetMesCours";
+        String coursString = "";
+        try {
+            coursString = this.PostRequest(url,json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return coursString;
+    }
+    public String getExamens(){
+        Serveur serveur = new Serveur();
+        Gson gson = new Gson();
+        String json = "";
+        String url = this.url+"formation/GetExamens";
+        String examenString = "";
+        try {
+            examenString = serveur.PostRequest(url,json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return examenString;
+    }
+    public String getMesExamens(long id){
+        Gson gson = new Gson();
+        String json = gson.toJson(id);
+        String url = this.url+"formation/GetMesExamens";
+        String examenString = "";
+        try {
+            examenString = this.PostRequest(url,json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return examenString;
+    }
+
 }

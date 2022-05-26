@@ -1,18 +1,20 @@
 package com.example.projetmobile_ecoleenligne;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import com.example.projetmobile_ecoleenligne.classes.*;
+import com.example.projetmobile_ecoleenligne.classes.CustomListAdapterExamen;
+import com.example.projetmobile_ecoleenligne.classes.Examen;
+import com.example.projetmobile_ecoleenligne.classes.Serveur;
+import com.example.projetmobile_ecoleenligne.classes.Utilisateur;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class MesExamensActivity extends AppCompatActivity {
@@ -20,6 +22,7 @@ public class MesExamensActivity extends AppCompatActivity {
     Button btn;
     Bundle extras;
     String role;
+    Utilisateur user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +32,16 @@ public class MesExamensActivity extends AppCompatActivity {
         // get mon intent
         extras = getIntent().getExtras();
         role = extras.getString("role");
+        user = extras.getParcelable("user");
 
         // Interroger la BD pour récuperer la liste des formations disponibles
         Serveur serveur = new Serveur();
         Gson gson = new Gson();
-        String json = "";
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/formation";
         String examenString = "";
 
         if(role.equals("moderateur")){
-            url += "/GetExamens";
-            try {
-                examenString = serveur.PostRequest(url,json);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            examenString = serveur.getExamens();
+
             btn.setVisibility(View.VISIBLE);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -55,15 +53,8 @@ public class MesExamensActivity extends AppCompatActivity {
 
         }
         else{
-            Formation formation = extras.getParcelable("formation");
-            //Formation to Json
-            json = gson.toJson(formation);
-            url += "/GetMesExamens";
-            try {
-                examenString = serveur.PostRequest(url,json);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String formation = extras.getString("formation");
+            examenString = serveur.getMesExamens(Long.parseLong(formation));
         }
         System.out.println(examenString);
         listeExamens = gson.fromJson(examenString,  new TypeToken<ArrayList<Examen>>(){}.getType());
@@ -85,12 +76,13 @@ public class MesExamensActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = listView.getItemAtPosition(position);
                 Examen examen = (Examen) o;
-                Toast.makeText(MesExamensActivity.this, "Selected :" + " " + examen.getListeReponse(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MesExamensActivity.this, "Selected :" + " " + examen.getTitre(), Toast.LENGTH_LONG).show();
                 Intent intention= new Intent(MesExamensActivity.this, ExamenActivity.class);
                 //intention.putExtra("examen",examen); on ne peut pas car listeReponse n'est pas parceable
                 Gson gson = new Gson();
                 String json = gson.toJson(examen);
                 intention.putExtra("examen",json);
+                intention.putExtra("user",user);
                 System.out.println(examen.getListeReponse());
                 startActivity(intention);
             }

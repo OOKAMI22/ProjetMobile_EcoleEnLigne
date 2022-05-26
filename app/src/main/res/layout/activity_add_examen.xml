@@ -6,5 +6,144 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AddExamenActivity">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+            <ImageView
+                    android:id="@+id/imageCours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView"
+                    app:srcCompat="@drawable/happy_mooc" />
+            <Spinner
+                    android:id="@+id/formation"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/grey_edt_background"/>
+
+
+            <TextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Titre de l'examen"
+                    android:textAlignment="center"
+                    android:textColor="#0757F6"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            <EditText
+                    android:id="@+id/titre"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez le titre de l'examen"
+                    android:inputType="textPersonName"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+
+            <EditText
+                    android:id="@+id/Q1"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez la question 1"
+                    android:inputType="textPersonName"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+
+            <EditText
+                    android:id="@+id/R1"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez la réponse 1"
+                    android:inputType="numberDecimal"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+            <EditText
+                    android:id="@+id/Q2"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez la question 2"
+                    android:inputType="textPersonName"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+
+            <EditText
+                    android:id="@+id/R2"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+
+                    android:background="@drawable/grey_edt_background"
+                    android:ems="10"
+                    android:hint="Entrez la réponse 2"
+                    android:inputType="numberDecimal"
+                    android:padding="16dp"
+                    android:textColorHint="#636363"
+                    android:textSize="18sp" />
+
+
+            <Button
+                    android:id="@+id/btn"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/blue_btn_background"
+                    android:text="Ajouter l'examen"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

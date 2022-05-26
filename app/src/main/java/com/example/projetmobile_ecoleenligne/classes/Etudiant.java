@@ -11,6 +11,11 @@ public class Etudiant extends Utilisateur{
         this.setMoyenne(0);
         this.setFormation(formation.getId());
     }
+    public Etudiant( String nom, String prenom, String email, long numero, String mdp, String pays,long formation) {
+        super( nom, prenom, email, numero, mdp, pays);
+        this.setMoyenne(0);
+        this.setFormation(formation);
+    }
     public Etudiant() {
         super();
     }
@@ -24,7 +29,7 @@ public class Etudiant extends Utilisateur{
     }
 
     public long getFormation() {
-        return id_formation;
+        return this.id_formation;
     }
 
     public void setFormation(long formation) {

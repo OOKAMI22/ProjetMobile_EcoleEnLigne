@@ -45,16 +45,7 @@ public class AddCoursActivity extends AppCompatActivity {
 
         // Interroger la BD pour récuperer la liste des formations disponibles
         Serveur serveur = new Serveur();
-        String json = "";
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/formation/GetFormation";
-
-
-        String formationString = null;
-        try {
-            formationString = serveur.PostRequest(url,json);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String formationString = serveur.getListeFormation();
 
         Gson gson = new Gson();
         listeFormations = gson.fromJson(formationString,  new TypeToken<ArrayList<Formation>>(){}.getType());
@@ -102,15 +93,11 @@ public class AddCoursActivity extends AppCompatActivity {
         id_formation = formation.getId();
         System.out.println(id_formation);
         cours = new Cours( titre, contenu, nbHeures,moderateur.getId(),id_formation);
-        Gson gons = new Gson();
-        String json = gons.toJson(cours);
-        System.out.println(json);
-
 
         // Reste à inserer le tuple dans la bdd via le serveur
         Serveur serveur = new Serveur();
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/formation/AddCours";
-        serveur.PutRequest(url,json);
+
+        serveur.addCours(cours);
 
         Intent intention= new Intent(AddCoursActivity.this, MesCoursActivity.class);
         intention.putExtra("role","moderateur");

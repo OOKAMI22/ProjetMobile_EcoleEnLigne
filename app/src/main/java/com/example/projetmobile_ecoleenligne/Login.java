@@ -48,22 +48,19 @@ public class Login extends AppCompatActivity {
         user = new Utilisateur();
         user.setEmail(email);
         user.setMdp(mdp);
-        // to Json
-        Gson gson = new Gson();
-        String json = gson.toJson(user);
-        System.out.println(json);
-        String role = "";
 
         // Interroger la bdd sur les 2 string
         Serveur serveur = new Serveur();
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ConnexionEtudiant";
+        serveur.getEtudiant(email,mdp);
+        // to Json
+        Gson gson = new Gson();
+        String role = "";
 
-        System.out.println("*********************");
-        System.out.println(serveur.PostRequest(url,json));
-        System.out.println("*********************");
-        if(!serveur.PostRequest(url,json).equals("")) {
-            String userString = serveur.PostRequest(url, json).toString();
+        if(!serveur.getEtudiant(email,mdp).equals("")) {
+            String userString =  serveur.getEtudiant(email,mdp);
+            System.out.println(userString);
             Etudiant userConnected = gson.fromJson(userString, Etudiant.class);
+
             role = "etudiant";
             // Envoyer les information de l'utilisateur à l'intent suivante
             Intent intention= new Intent(Login.this, AcceuilActivity.class);
@@ -71,13 +68,14 @@ public class Login extends AppCompatActivity {
             intention.putExtra("user", userConnected);
             intention.putExtra("userInfo",userConnected.toString());
             intention.putExtra("role",role);
+            System.out.println(""+userConnected.getFormation());
             intention.putExtra("formation",""+userConnected.getFormation());
             startActivity(intention);
         }
         else{
-            url = "http://192.168.1.74:8080/EcoleEnLigne/utilisateur/ConnexionModerateur";
-            if(!serveur.PostRequest(url, json).equals("")) {
-                String userString = serveur.PostRequest(url, json).toString();
+            if(!serveur.getModerateur(email,mdp).equals("")) {
+                String userString = serveur.getModerateur(email,mdp);
+                System.out.println(userString);
                 Moderateur userConnected = gson.fromJson(userString, Moderateur.class);
                 role = "moderateur";
 

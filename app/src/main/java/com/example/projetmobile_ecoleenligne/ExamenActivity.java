@@ -7,10 +7,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.projetmobile_ecoleenligne.classes.Examen;
+import com.example.projetmobile_ecoleenligne.classes.Note;
+import com.example.projetmobile_ecoleenligne.classes.Serveur;
+import com.example.projetmobile_ecoleenligne.classes.Utilisateur;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ExamenActivity extends AppCompatActivity {
     Bundle extras;
@@ -19,6 +26,9 @@ public class ExamenActivity extends AppCompatActivity {
     TextView question;
     EditText reponse;
     Button btn;
+    Examen exam = new Examen();
+    Utilisateur user;
+    Note note;
     int point = 0;
     int position = 0;
     private Map<String, String> listeReponse = new HashMap<>();
@@ -34,10 +44,11 @@ public class ExamenActivity extends AppCompatActivity {
         btn = findViewById(R.id.btn);
 
         extras = getIntent().getExtras();
+        user = extras.getParcelable("user");
         //Examen exam = extras.getParcelable("examen");
         String json = extras.getString("examen");
         Gson gson = new Gson();
-        Examen exam = gson.fromJson(json, new TypeToken<Examen>() {
+        exam = gson.fromJson(json, new TypeToken<Examen>() {
         }.getType());
         titre.setText(exam.getTitre());
         formation.setText(String.valueOf(exam.getIdFormation()));
@@ -62,21 +73,25 @@ public class ExamenActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Envoyer(listeQuestion,listeValues,view);
+                try {
+                    Envoyer(listeQuestion,listeValues,view);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
     }
 
 
-    public void Envoyer(List<String> listeQuestion,List<String> listeValues, View view) {
+    public void Envoyer(List<String> listeQuestion,List<String> listeValues, View view) throws IOException {
         String laReponse = listeValues.get(position);
 
         System.out.println(laReponse);
         System.out.println(reponse.getText().toString());
 
         if (reponse.getText().toString().equals(laReponse)) {
-            System.out.println("BIngoooooooooooooooooo");
+            System.out.println("Bingoooooooooooooooooo");
             point++;
         }
         position++;
@@ -89,6 +104,9 @@ public class ExamenActivity extends AppCompatActivity {
             question.setText("Voici votre score "+point);
             reponse.setVisibility(View.GONE);
             btn.setVisibility(View.GONE);
+            Note note = new Note(user.getId(),exam.getId(),point,position);
+            Serveur serveur = new Serveur();
+            serveur.addNote(note);
         }
 
     }

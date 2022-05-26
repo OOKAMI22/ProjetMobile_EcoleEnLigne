@@ -1,19 +1,22 @@
 package com.example.projetmobile_ecoleenligne;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import com.example.projetmobile_ecoleenligne.classes.*;
+import com.example.projetmobile_ecoleenligne.classes.Cours;
+import com.example.projetmobile_ecoleenligne.classes.CustomListAdapterCours;
+import com.example.projetmobile_ecoleenligne.classes.Serveur;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
 import java.util.ArrayList;
+
+import static java.lang.Long.parseLong;
 
 public class MesCoursActivity extends AppCompatActivity {
     ArrayList<Cours> listeCours = new ArrayList<>();
@@ -33,17 +36,11 @@ public class MesCoursActivity extends AppCompatActivity {
         // Interroger la BD pour récuperer la liste des formations disponibles
         Serveur serveur = new Serveur();
         Gson gson = new Gson();
-        String json = "";
-        String url = "http://192.168.1.74:8080/EcoleEnLigne/formation";
         String coursString = "";
 
         if(role.equals("moderateur")){
-            url += "/GetCours";
-            try {
-                coursString = serveur.PostRequest(url,json);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            coursString = serveur.getCours();
+
             btn.setVisibility(View.VISIBLE);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -55,15 +52,9 @@ public class MesCoursActivity extends AppCompatActivity {
 
         }
         else{
-            Formation formation = extras.getParcelable("formation");
-            //Formation to Json
-            json = gson.toJson(formation);
-            url += "/GetMesCours";
-            try {
-                coursString = serveur.PostRequest(url,json);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String formation = extras.getString("formation");
+            coursString = serveur.getMesCours(parseLong(formation));
+            System.out.println(coursString);
         }
         listeCours = gson.fromJson(coursString,  new TypeToken<ArrayList<Cours>>(){}.getType());
         System.out.println(listeCours.get(0).getContenu());

@@ -40,6 +40,7 @@ public class Examen implements Parcelable {
         }
     };
 
+    public long getId(){return this.id;}
     public long getId_moderateur() {
         return this.id_moderateur;
     }

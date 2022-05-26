@@ -54,7 +54,7 @@ public class AcceuilActivity extends AppCompatActivity {
                 Intent intention= new Intent(AcceuilActivity.this, MesExamensActivity.class);
                 intention.putExtra("user",user);
                 intention.putExtra("role",role);
-                intention.putExtra("formation",formationEtu);
+                intention.putExtra("formation",formatioString);
                 intention.putExtra("grade",grade);
                 startActivity(intention);
             }
@@ -66,7 +66,7 @@ public class AcceuilActivity extends AppCompatActivity {
                 Intent intention= new Intent(AcceuilActivity.this, MesCoursActivity.class);
                 intention.putExtra("user",user);
                 intention.putExtra("role",role);
-                intention.putExtra("formation",formationEtu);
+                intention.putExtra("formation",formatioString);
                 intention.putExtra("grade",grade);
                 startActivity(intention);
             }
@@ -78,7 +78,7 @@ public class AcceuilActivity extends AppCompatActivity {
                 Intent intention= new Intent(AcceuilActivity.this, FormationsActivity.class);
                 intention.putExtra("user",user);
                 intention.putExtra("role",role);
-                intention.putExtra("formation",formationEtu);
+                intention.putExtra("formation",formatioString);
                 intention.putExtra("grade",grade);
                 startActivity(intention);
             }
