@@ -30,6 +30,7 @@ public class AcceuilActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_acceuil);
         // get mon intent
+
         extras = getIntent().getExtras();
         userInfo = extras.getString("userInfo");
         role = extras.getString("role");

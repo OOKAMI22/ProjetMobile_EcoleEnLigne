@@ -18,6 +18,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/happy_moc" android:layout_marginTop="16dp"/>
 
+
     <EditText
             android:id="@+id/recherche"
             android:layout_width="0dp"

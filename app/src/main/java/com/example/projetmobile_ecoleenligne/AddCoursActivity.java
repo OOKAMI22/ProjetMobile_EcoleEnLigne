@@ -79,6 +79,7 @@ public class AddCoursActivity extends AppCompatActivity {
         });
 
     }
+
     public void ajouterCours(View view) throws IOException {
         String titre = titreC.getText().toString();
         String contenu = contenuC.getText().toString();

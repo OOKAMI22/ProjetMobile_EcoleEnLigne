@@ -90,6 +90,10 @@ public class MesExamensActivity extends AppCompatActivity {
     }
     public void addExamen(View view) {
         Intent intention= new Intent(MesExamensActivity.this, AddExamenActivity.class);
+        intention.putExtra("user",user);
+        intention.putExtra("role",user);
+        intention.putExtra("grade",user);
+        intention.putExtra("formation",user);
         startActivity(intention);
     }
 

@@ -90,6 +90,7 @@
                         android:padding="16dp"
                         android:textColorHint="#636363"
                         android:textSize="18sp" />
+
                 <Spinner
                         android:id="@+id/formation"
                         android:layout_width="match_parent"

@@ -97,7 +97,6 @@ public class Signup extends AppCompatActivity {
         etudiant = new Etudiant( nom, prenom, email, numero, mdp, pays,formation);
 
 
-
         // Reste à inserer le tuple dans la bdd via le serveur
         Serveur serveur = new Serveur();
         serveur.putEtudiant(etudiant);

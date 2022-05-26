@@ -203,6 +203,17 @@ public class Serveur {
         String url = this.url+"formation/AddCours";
         this.PutRequest(url,json);
     }
+
+    public void addExamen(Examen e) throws IOException {
+        Gson gons = new Gson();
+        String json = gons.toJson(e);
+        System.out.println(json);
+        // Reste à inserer le tuple dans la bdd via le serveur
+        Serveur serveur = new Serveur();
+        String url = this.url+"formation/AddExamen";
+        this.PutRequest(url,json);
+    }
+
     public String getCours(){
         Gson gson = new Gson();
         String json = "";

@@ -72,6 +72,7 @@ public class Login extends AppCompatActivity {
             intention.putExtra("formation",""+userConnected.getFormation());
             startActivity(intention);
         }
+
         else{
             if(!serveur.getModerateur(email,mdp).equals("")) {
                 String userString = serveur.getModerateur(email,mdp);
